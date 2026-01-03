@@ -3,141 +3,180 @@ import streamlit as st
 st.set_page_config(page_title="Sistem Laboratorium", layout="wide")
 
 # ===============================
-# DATABASE JADWAL LAB (JADWAL KELAS)
+# DATABASE JADWAL LAB (SIMULASI)
 # ===============================
 jadwal = {
     "Lab.organik": {
-        "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+        "senin":  {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
         "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-        "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-        "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-        "jumat": {"07.00": "1B", "10.00": "2D"},
     },
-
     "Lab.analisis": {
-        "senin": {"07.00": "2A", "10.00": "2B", "14.00": "2C"},
-        "selasa": {"07.00": "2D", "10.00": "2E", "14.00": "2F"},
-        "rabu": {"07.00": "1A", "10.00": "1B"},
+        "senin":  {"07.00": "2A", "10.00": "2B", "14.00": "2C"},
+        "selasa": {"07.00": "1A", "10.00": "2D"},
     },
-
     "Lab.instrument": {
-        "senin": {"07.00": "2E", "10.00": "2F"},
-        "selasa": {"07.00": "1G"},
+        "senin":  {"07.00": "2D", "10.00": "2E"},
+        "selasa": {"07.00": "2F", "10.00": "2G"},
     },
-
     "Lab.lingkungan": {
-        "senin": {"07.00": "3A"},
-    }
+        "senin":  {"07.00": "1A", "10.00": "2A"},
+        "selasa": {"07.00": "2C", "10.00": "2D"},
+    },
 }
 
 # ===============================
-# DATABASE LAB & LABORAN
+# DATA DOSEN / LABORAN PER LAB
 # ===============================
-lab_info = {
-    "Lab.organik": {
-        "laboran": [
-            {"nama": "Ahmad Golda, M.Si", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Siti Indomi, M.Si", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Ultra Mikk, A.Md.Si", "telp": "08vvvvvvvvvvvvv"},
-        ]
-    },
-    "Lab.analisis": {
-        "laboran": [
-            {"nama": "Pak Joko", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Bu Puan", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Bu Sri", "telp": "08vvvvvvvvvvvvv"},
-        ]
-    },
-    "Lab.instrument": {
-        "laboran": [
-            {"nama": "Pak DD", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Bu CC", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Mas HH", "telp": "08vvvvvvvvvvvvv"},
-        ]
-    },
-    "Lab.lingkungan": {
-        "laboran": [
-            {"nama": "Pak AA", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Bu BB", "telp": "08vvvvvvvvvvvvv"},
-            {"nama": "Mas CC", "telp": "08vvvvvvvvvvvvv"},
-        ]
-    }
+laboran = {
+    "organik": [
+        {"nama": "Dosen Organik 1", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Organik 2", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Organik 3", "telp": "08vvvvvvvvvvvvv"},
+    ],
+    "analisis": [
+        {"nama": "Dosen Analisis 1", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Analisis 2", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Analisis 3", "telp": "08vvvvvvvvvvvvv"},
+    ],
+    "instrument": [
+        {"nama": "Dosen Instrumen 1", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Instrumen 2", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Instrumen 3", "telp": "08vvvvvvvvvvvvv"},
+    ],
+    "lingkungan": [
+        {"nama": "Dosen Lingkungan 1", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Lingkungan 2", "telp": "08vvvvvvvvvvvvv"},
+        {"nama": "Dosen Lingkungan 3", "telp": "08vvvvvvvvvvvvv"},
+    ],
 }
 
 # ===============================
 # SESSION STATE
 # ===============================
-if "hal_lab" not in st.session_state:
-    st.session_state.hal_lab = "menu"
-if "lab_terpilih" not in st.session_state:
-    st.session_state.lab_terpilih = None
+if "lab_aktif" not in st.session_state:
+    st.session_state.lab_aktif = None
 
 # ===============================
-# FITUR LIHAT JADWAL
+# HALAMAN JADWAL
 # ===============================
 def lihat_jadwal():
     st.header("📅 Jadwal Penggunaan Laboratorium")
 
     lab = st.selectbox("Pilih Laboratorium", list(jadwal.keys()))
-    hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
+    hari = st.selectbox("Pilih Hari", ["senin", "selasa"])
 
     data = jadwal[lab].get(hari)
 
     if data:
         st.subheader(f"{lab} — {hari.capitalize()}")
         for jam, kelas in data.items():
-            st.write(f"🕒 {jam} → Kelas {kelas}")
+            st.write(f"🕒 **{jam}** → Kelas **{kelas}**")
     else:
-        st.info("Tidak ada jadwal pada hari ini")
+        st.info("Tidak ada jadwal")
 
 # ===============================
 # MENU LAB
 # ===============================
 def menu_lab():
     st.header("🏫 Informasi Laboratorium")
-    st.write("Pilih laboratorium untuk melihat detail informasi")
+    st.write("Pilih laboratorium untuk melihat regulasi, alur, dan dosen laboran")
 
-    for lab in lab_info.keys():
-        if st.button(lab):
-            st.session_state.lab_terpilih = lab
-            st.session_state.hal_lab = "detail"
+    col1, col2 = st.columns(2)
 
-def detail_lab():
-    lab = st.session_state.lab_terpilih
-    info = lab_info[lab]
+    with col1:
+        if st.button("Lab Organik"):
+            st.session_state.lab_aktif = "organik"
+        if st.button("Lab Analisis"):
+            st.session_state.lab_aktif = "analisis"
 
-    st.header(f"🔬 {lab}")
-
-    st.subheader("📋 Prosedur Peminjaman Lab")
-    st.write("""
-    1. Mengisi formulir peminjaman
-    2. Menunggu persetujuan laboran
-    3. Menggunakan lab sesuai jadwal
-    4. Membersihkan dan mengembalikan alat
-    """)
-
-    st.link_button(
-        "📄 Formulir Peminjaman",
-        "https://docs.google.com"
-    )
-
-    st.subheader("👨‍🔬 Laboran / PJ Lab")
-    for l in info["laboran"]:
-        st.write(f"• **{l['nama']}**")
-        st.write(f"  📞 {l['telp']}")
-
-    st.subheader("⚠️ Aturan Penggunaan")
-    st.write("""
-    - Wajib menggunakan APD
-    - Dilarang membawa makanan/minuman
-    - Bertanggung jawab terhadap alat
-    """)
-
-    if st.button("⬅ Kembali"):
-        st.session_state.hal_lab = "menu"
+    with col2:
+        if st.button("Lab Instrument"):
+            st.session_state.lab_aktif = "instrument"
+        if st.button("Lab Lingkungan"):
+            st.session_state.lab_aktif = "lingkungan"
 
 # ===============================
-# SIDEBAR MENU
+# HALAMAN LAB ORGANIK
+# ===============================
+def lab_organik():
+    st.header("🔬 Lab Organik")
+
+    st.subheader("📋 Regulasi & Alur")
+    st.write("• OOOOOOO")
+    st.write("• OOOOOOO")
+    st.write("• OOOOOOO")
+
+    st.subheader("👨‍🔬 Dosen / Laboran")
+    for d in laboran["organik"]:
+        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+
+    st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
+
+    if st.button("⬅ Kembali"):
+        st.session_state.lab_aktif = None
+
+# ===============================
+# HALAMAN LAB LINGKUNGAN
+# ===============================
+def lab_lingkungan():
+    st.header("🌱 Lab Lingkungan")
+
+    st.subheader("📋 Regulasi & Alur")
+    st.write("• WWWWWW")
+    st.write("• WWWWWWW")
+    st.write("• WWWWWW")
+
+    st.subheader("👨‍🔬 Dosen / Laboran")
+    for d in laboran["lingkungan"]:
+        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+
+    st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
+
+    if st.button("⬅ Kembali"):
+        st.session_state.lab_aktif = None
+
+# ===============================
+# HALAMAN LAB ANALISIS
+# ===============================
+def lab_analisis():
+    st.header("⚗️ Lab Analisis")
+
+    st.subheader("📋 Regulasi & Alur")
+    st.write("• AAAAA")
+    st.write("• AAAAA")
+    st.write("• AAAAA")
+
+    st.subheader("👨‍🔬 Dosen / Laboran")
+    for d in laboran["analisis"]:
+        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+
+    st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
+
+    if st.button("⬅ Kembali"):
+        st.session_state.lab_aktif = None
+
+# ===============================
+# HALAMAN LAB INSTRUMENT
+# ===============================
+def lab_instrument():
+    st.header("🧪 Lab Instrument")
+
+    st.subheader("📋 Regulasi & Alur")
+    st.write("• EEEEE")
+    st.write("• EEEEE")
+    st.write("• EEEEE")
+
+    st.subheader("👨‍🔬 Dosen / Laboran")
+    for d in laboran["instrument"]:
+        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+
+    st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
+
+    if st.button("⬅ Kembali"):
+        st.session_state.lab_aktif = None
+
+# ===============================
+# SIDEBAR
 # ===============================
 menu = st.sidebar.radio(
     "Menu",
@@ -149,9 +188,14 @@ menu = st.sidebar.radio(
 # ===============================
 if menu == "Lihat Jadwal Lab":
     lihat_jadwal()
-
-elif menu == "Informasi Lab":
-    if st.session_state.hal_lab == "menu":
+else:
+    if st.session_state.lab_aktif is None:
         menu_lab()
-    else:
-        detail_lab()
+    elif st.session_state.lab_aktif == "organik":
+        lab_organik()
+    elif st.session_state.lab_aktif == "lingkungan":
+        lab_lingkungan()
+    elif st.session_state.lab_aktif == "analisis":
+        lab_analisis()
+    elif st.session_state.lab_aktif == "instrument":
+        lab_instrument()
