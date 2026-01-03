@@ -1,9 +1,13 @@
-import streamlit as st
-
-st.title("AWAS ADA UJANGGGGG 🏍️🏍️🏍️🏍️")
-st.write(
-    "irsyad TOP GLOBAL 85 EDITH SEASOn 38 [docs.streamlit.io](https://docs.streamlit.io/)."
+st.markdown(
+    """
+    <a href="https://drive.google.com/drive/folders/ISI_LINK_DRIVE_KAMU" target="_blank">
+        <img src="assets/drive_button.png"
+             style="
+                width:180px;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.2);
+             ">
+    </a>
+    """,
+    unsafe_allow_html=True
 )
-.teks-besar {🏍️🏍️🏍️
-    font-size: 50px;
-}
