@@ -1,4 +1,8 @@
 import streamlit as st
+st.image("WhatsApp Image 2025-12-22 at 13.48.25.jpeg", caption="Sunrise by the mountains")
+
+
+import streamlit as st
 
 st.set_page_config(page_title="Sistem Laboratorium", layout="wide")
 
