@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="Sistem Informasi Laboratorium", layout="wide", page_icon="🔬")
 
 # ===============================
-# DATABASE LAB (DIPERBARUI DENGAN REGULASI & LINK)
+# DATABASE LAB (DATA ASLI DOKUMEN)
 # ===============================
 DATABASE_LAB = {
     "Lab Organik": {
@@ -17,18 +17,18 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. wwww dresscode lab lengkap", [cite: 2]
-            "2. wwww dilarang makan/minum", [cite: 2]
-            "3. wwww cek alat sebelum pakai", [cite: 2]
-            "4. wwww bersihkan meja setelah praktikum", [cite: 2]
-            "5. wwww lapor jika ada kerusakan" [cite: 2]
+            "1. wwww dresscode lab lengkap",
+            "2. wwww dilarang makan/minum",
+            "3. wwww cek alat sebelum pakai",
+            "4. wwww bersihkan meja setelah praktikum",
+            "5. wwww lapor jika ada kerusakan"
         ],
         "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4", "foto": "https://via.placeholder.com/150"}, [cite: 2]
+            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 2]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Analisis": {
         "gedung": "Gedung B",
@@ -41,18 +41,18 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. bbbbbbbbbb", [cite: 2]
-            "2. bbbbbbbbbbb", [cite: 2]
-            "3. bbbbbbbbbbbb", [cite: 2]
-            "4. bbbbbbbbbbb", [cite: 2]
-            "5. bbbbbbbbbbbbb" [cite: 2]
+            "1. bbbbbbbbbb",
+            "2. bbbbbbbbbbb",
+            "3. bbbbbbbbbbbb",
+            "4. bbbbbbbbbbb",
+            "5. bbbbbbbbbbbbb"
         ],
         "dosen": [
-            {"nama": "Pak Joko", "telp": "Kode 5", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Bu Puan", "telp": "Kode 6", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Bu Sri", "telp": "Kode 7", "foto": "https://via.placeholder.com/150"}, [cite: 2]
+            {"nama": "Pak Joko", "telp": "Kode 5"},
+            {"nama": "Bu Puan", "telp": "Kode 6"},
+            {"nama": "Bu Sri", "telp": "Kode 7"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 2]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Lingkungan": {
         "gedung": "Gedung B",
@@ -65,18 +65,18 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. pppppppppp", [cite: 2]
-            "2. ppppppppppp", [cite: 2]
-            "3. pppppppppppp", [cite: 2]
-            "4. ppppppppppp", [cite: 2]
-            "5. ppppppppppppp" [cite: 2]
+            "1. pppppppppp",
+            "2. ppppppppppp",
+            "3. pppppppppppp",
+            "4. ppppppppppp",
+            "5. ppppppppppppp"
         ],
         "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Bu Retno", "telp": "Kode 9", "foto": "https://via.placeholder.com/150"}, [cite: 2]
-            {"nama": "Mas Jaka", "telp": "Kode 10", "foto": "https://via.placeholder.com/150"}, [cite: 2]
+            {"nama": "Pak Purbay", "telp": "Kode 8"},
+            {"nama": "Bu Retno", "telp": "Kode 9"},
+            {"nama": "Mas Jaka", "telp": "Kode 10"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 2]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Instrumen": {
         "gedung": "Gedung E",
@@ -89,18 +89,18 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. ooooooooooo", [cite: 29]
-            "2. ooooooooooo", [cite: 30]
-            "3. oooooooooooo", [cite: 31]
-            "4. ooooooooooo", [cite: 32]
-            "5. ooooooooooooo" [cite: 34]
+            "1. 0000000000",
+            "2. 00000000000",
+            "3. 000000000000",
+            "4. 00000000000",
+            "5. 0000000000000"
         ],
         "dosen": [
-            {"nama": "Pak DD", "telp": "Kode 11", "foto": "https://via.placeholder.com/150"}, [cite: 25]
-            {"nama": "Bu CC", "telp": "Kode 12", "foto": "https://via.placeholder.com/150"}, [cite: 26]
-            {"nama": "Mas HH", "telp": "Kode 13", "foto": "https://via.placeholder.com/150"}, [cite: 27]
+            {"nama": "Pak DD", "telp": "Kode 11"},
+            {"nama": "Bu CC", "telp": "Kode 12"},
+            {"nama": "Mas HH", "telp": "Kode 13"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 35]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Fisika": {
         "gedung": "Gedung F",
@@ -113,18 +113,18 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. mmmmmmmmmm", [cite: 87]
-            "2. mmmmmmmmmmm", [cite: 88]
-            "3. mmmmmmmmmmmm", [cite: 89]
-            "4. mmmmmmmmmmm", [cite: 90]
-            "5. mmmmmmmmmmmmm" [cite: 91]
+            "1. mmmmmmmmmm",
+            "2. mmmmmmmmmmm",
+            "3. mmmmmmmmmmmm",
+            "4. mmmmmmmmmmm",
+            "5. mmmmmmmmmmmmm"
         ],
         "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8", "foto": "https://via.placeholder.com/150"}, [cite: 83]
-            {"nama": "Bu Retno", "telp": "Kode 9", "foto": "https://via.placeholder.com/150"}, [cite: 84]
-            {"nama": "Mas Jaka", "telp": "Kode 10", "foto": "https://via.placeholder.com/150"}, [cite: 85]
+            {"nama": "Pak Purbay", "telp": "Kode 8"},
+            {"nama": "Bu Retno", "telp": "Kode 9"},
+            {"nama": "Mas Jaka", "telp": "Kode 10"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 92]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Teknologi": {
         "gedung": "Gedung G",
@@ -137,23 +137,23 @@ DATABASE_LAB = {
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
         "regulasi": [
-            "1. msmsmsmsmsmsms", [cite: 120]
-            "2. msmsmsmsmsmsms", [cite: 121]
-            "3. msmsmsmsmsmsms", [cite: 122]
-            "4. msmsmsmsmsmsms", [cite: 123]
-            "5. msmsmsmsmsmsms" [cite: 124]
+            "1. msmsmsmsmsmsms",
+            "2. msmsmsmsmsmsmsms",
+            "3. msmsmsmsmsmsmsmsms",
+            "4. msmsmsmsmsmsmsms",
+            "5. msmsmsmsmsmsmsmsms"
         ],
         "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2", "foto": "https://via.placeholder.com/150"}, [cite: 116]
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3", "foto": "https://via.placeholder.com/150"}, [cite: 117]
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4", "foto": "https://via.placeholder.com/150"}, [cite: 118]
+            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
         ],
-        "link_form": "https://youtu.be/opl6dScRQzQ" [cite: 125]
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     }
 }
 
 # ===============================
-# LOGIKA UTAMA & NAVIGASI
+# FUNGSI NAVIGASI & TAMPILAN
 # ===============================
 if "lab_terpilih" not in st.session_state:
     st.session_state.lab_terpilih = None
@@ -163,59 +163,50 @@ def reset_lab():
 
 def halaman_detail_lab(nama_lab):
     data = DATABASE_LAB[nama_lab]
-    st.button("⬅ Kembali ke Daftar Gedung", on_click=reset_lab)
-    
+    st.button("⬅ Kembali ke Menu Utama", on_click=reset_lab)
     st.title(f"🔬 {nama_lab}")
     st.divider()
 
     col1, col2 = st.columns([1.5, 1])
-
     with col1:
         st.subheader("📜 Regulasi Peminjaman")
-        for reg in data["regulasi"]:
-            st.write(reg)
-        
-        st.markdown("---")
-        st.subheader("📑 Formulir & Dokumen")
-        st.link_button("Klik untuk Formulir Peminjaman (G-Drive)", data["link_form"], type="primary", use_container_width=True)
+        for r in data["regulasi"]:
+            st.write(r)
+        st.divider()
+        st.link_button("🌐 Klik Untuk Formulir Peminjaman", data["link_form"], type="primary", use_container_width=True)
 
     with col2:
-        st.subheader("👨‍🔬 Tim Dosen / Laboran")
+        st.subheader("👨‍🔬 Dosen & Laboran")
         for d in data["dosen"]:
             with st.container(border=True):
-                st.image(d["foto"], width=80)
                 st.write(f"**{d['nama']}**")
                 st.caption(f"📞 {d['telp']}")
 
 def tampilkan_gedung(nama_gedung):
     st.header(f"🏢 {nama_gedung}")
     lab_di_gedung = {k: v for k, v in DATABASE_LAB.items() if v["gedung"] == nama_gedung}
-    
-    cols = st.columns(len(lab_di_gedung) if lab_di_gedung else 1)
-    for idx, (nama_lab, info) in enumerate(lab_di_gedung.items()):
-        with cols[idx]:
-            if st.button(f"Masuk {nama_lab}", key=info["key"]):
-                st.session_state.lab_terpilih = nama_lab
-                st.rerun()
+    for nama_lab, info in lab_di_gedung.items():
+        if st.button(f"Pilih {nama_lab}", key=info["key"]):
+            st.session_state.lab_terpilih = nama_lab
+            st.rerun()
 
 def lihat_jadwal():
     st.header("📅 Jadwal Laboratorium")
     lab_nama = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
     hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
-    
-    jadwal_data = DATABASE_LAB[lab_nama]["jadwal"].get(hari)
-    if jadwal_data:
-        for jam, kelas in jadwal_data.items():
-            st.info(f"🕒 **{jam}** — Kelas **{kelas}**")
+    jadwal_hari = DATABASE_LAB[lab_nama]["jadwal"].get(hari)
+    if jadwal_hari:
+        for jam, kls in jadwal_hari.items():
+            st.info(f"🕒 **{jam}** — Kelas **{kls}**")
     else:
         st.warning("Tidak ada jadwal.")
 
 # ===============================
-# SIDEBAR & ROUTING
+# ROUTING
 # ===============================
 with st.sidebar:
-    st.title("Sistem Lab")
-    menu = st.radio("Navigasi", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
+    st.title("Menu Lab")
+    menu = st.radio("Pilih Menu", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
 
 if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
