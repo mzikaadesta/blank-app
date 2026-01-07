@@ -1,215 +1,103 @@
 import streamlit as st
+import re
+import time
 
-st.set_page_config(page_title="Sistem Informasi Laboratorium", layout="wide", page_icon="🔬")
-
-# ===============================
-# DATABASE LAB (DATA ASLI DOKUMEN)
-# ===============================
-DATABASE_LAB = {
-    "Lab Organik": {
-        "gedung": "Gedung B",
-        "key": "organik",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. wwww dresscode lab lengkap",
-            "2. wwww dilarang makan/minum",
-            "3. wwww cek alat sebelum pakai",
-            "4. wwww bersihkan meja setelah praktikum",
-            "5. wwww lapor jika ada kerusakan"
-        ],
-        "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2"},
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab Analisis": {
-        "gedung": "Gedung B",
-        "key": "analisis",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. bbbbbbbbbb",
-            "2. bbbbbbbbbbb",
-            "3. bbbbbbbbbbbb",
-            "4. bbbbbbbbbbb",
-            "5. bbbbbbbbbbbbb"
-        ],
-        "dosen": [
-            {"nama": "Pak Joko", "telp": "Kode 5"},
-            {"nama": "Bu Puan", "telp": "Kode 6"},
-            {"nama": "Bu Sri", "telp": "Kode 7"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab Lingkungan": {
-        "gedung": "Gedung B",
-        "key": "lingkungan",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. pppppppppp",
-            "2. ppppppppppp",
-            "3. pppppppppppp",
-            "4. ppppppppppp",
-            "5. ppppppppppppp"
-        ],
-        "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8"},
-            {"nama": "Bu Retno", "telp": "Kode 9"},
-            {"nama": "Mas Jaka", "telp": "Kode 10"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab Instrumen": {
-        "gedung": "Gedung E",
-        "key": "instrumen",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. 0000000000",
-            "2. 00000000000",
-            "3. 000000000000",
-            "4. 00000000000",
-            "5. 0000000000000"
-        ],
-        "dosen": [
-            {"nama": "Pak DD", "telp": "Kode 11"},
-            {"nama": "Bu CC", "telp": "Kode 12"},
-            {"nama": "Mas HH", "telp": "Kode 13"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab Fisika": {
-        "gedung": "Gedung F",
-        "key": "fisika",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. mmmmmmmmmm",
-            "2. mmmmmmmmmmm",
-            "3. mmmmmmmmmmmm",
-            "4. mmmmmmmmmmm",
-            "5. mmmmmmmmmmmmm"
-        ],
-        "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8"},
-            {"nama": "Bu Retno", "telp": "Kode 9"},
-            {"nama": "Mas Jaka", "telp": "Kode 10"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab Teknologi": {
-        "gedung": "Gedung G",
-        "key": "teknologi",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. msmsmsmsmsmsms",
-            "2. msmsmsmsmsmsmsms",
-            "3. msmsmsmsmsmsmsmsms",
-            "4. msmsmsmsmsmsmsms",
-            "5. msmsmsmsmsmsmsmsms"
-        ],
-        "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2"},
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    }
+# =========================================================
+# 1. DATA STATIS (Massa Atom & Tabel Periodik)
+# =========================================================
+massa_atom = {
+    "H": 1.01, "He": 4.00, "Li": 6.94, "Be": 9.01, "B": 10.81, 
+    "C": 12.01, "N": 14.01, "O": 16.00, "F": 19.00, "Ne": 20.18,
+    "Na": 22.99, "Mg": 24.31, "Al": 26.98, "Si": 28.09, "P": 30.97,
+    "S": 32.07, "Cl": 35.45, "Ar": 39.95, "K": 39.10, "Ca": 40.08,
+    "Fe": 55.85, "Pb": 207.2, "Cu": 63.55, "Zn": 65.38, "Ag": 107.87
 }
 
-# ===============================
-# FUNGSI NAVIGASI & TAMPILAN
-# ===============================
-if "lab_terpilih" not in st.session_state:
-    st.session_state.lab_terpilih = None
+# Struktur sederhana Tabel Periodik (Simbol, Golongan)
+elemen_periodik = [
+    [{"simbol": "H", "gol": "IA"}, {"simbol": "", "gol": ""}, {"simbol": "He", "gol": "VIIIA"}],
+    [{"simbol": "Li", "gol": "IA"}, {"simbol": "Be", "gol": "IIA"}, {"simbol": "B", "gol": "IIIA"}],
+    [{"simbol": "Na", "gol": "IA"}, {"simbol": "Mg", "gol": "IIA"}, {"simbol": "Al", "gol": "IIIA"}]
+    # Tambahkan elemen lain sesuai kebutuhan makalah
+]
 
-def reset_lab():
-    st.session_state.lab_terpilih = None
+# =========================================================
+# 2. LOGIKA REAKSI KIMIA (Reaction Engine)
+# =========================================================
+reaksi_database = {
+    frozenset(["H", "O"]): {"setara": "2H_2 + O_2 \\rightarrow 2H_2O", "produk": "H2O"},
+    frozenset(["Na", "Cl"]): {"setara": "2Na + Cl_2 \\rightarrow 2NaCl", "produk": "NaCl"},
+    frozenset(["Fe", "Cl"]): {"setara_opsi": ["Fe + Cl_2 \\rightarrow FeCl_2", "2Fe + 3Cl_2 \\rightarrow 2FeCl_3"], "produk_opsi": ["FeCl2", "FeCl3"]}
+}
 
-def halaman_detail_lab(nama_lab):
-    data = DATABASE_LAB[nama_lab]
-    st.button("⬅ Kembali ke Menu Utama", on_click=reset_lab)
-    st.title(f"🔬 {nama_lab}")
-    st.divider()
+def hitung_massa_molekul(rumus):
+    pattern = r'([A-Z][a-z]?)(\d*)'
+    res = re.findall(pattern, rumus)
+    try:
+        total = 0
+        for simbol, jumlah in res:
+            jumlah = int(jumlah) if jumlah else 1
+            total += massa_atom.get(simbol, 0) * jumlah
+        return total
+    except: return None
 
-    col1, col2 = st.columns([1.5, 1])
-    with col1:
-        st.subheader("📜 Regulasi Peminjaman")
-        for r in data["regulasi"]:
-            st.write(r)
-        st.divider()
-        st.link_button("🌐 Klik Untuk Formulir Peminjaman", data["link_form"], type="primary", use_container_width=True)
+# =========================================================
+# 3. ANTARMUKA (UI & Layout)
+# =========================================================
+st.set_page_config(page_title="Penyusun Reaksi Kimia", layout="wide")
 
-    with col2:
-        st.subheader("👨‍🔬 Dosen & Laboran")
-        for d in data["dosen"]:
-            with st.container(border=True):
-                st.write(f"**{d['nama']}**")
-                st.caption(f"📞 {d['telp']}")
+# CSS untuk Glassmorphism & Background (Sesuai permintaan sebelumnya)
+st.markdown("""
+    <style>
+    .stApp { background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; }
+    @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .stButton>button { border-radius: 10px; background: rgba(255,255,255,0.2); color: white; border: 1px solid white; }
+    h1, h3, p { color: white !important; }
+    </style>
+""", unsafe_allow_html=True)
 
-def tampilkan_gedung(nama_gedung):
-    st.header(f"🏢 {nama_gedung}")
-    lab_di_gedung = {k: v for k, v in DATABASE_LAB.items() if v["gedung"] == nama_gedung}
-    for nama_lab, info in lab_di_gedung.items():
-        if st.button(f"Pilih {nama_lab}", key=info["key"]):
-            st.session_state.lab_terpilih = nama_lab
-            st.rerun()
+st.title("🔬 Penyusun Persamaan Reaksi Kimia")
 
-def lihat_jadwal():
-    st.header("📅 Jadwal Laboratorium")
-    lab_nama = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
-    hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
-    jadwal_hari = DATABASE_LAB[lab_nama]["jadwal"].get(hari)
-    if jadwal_hari:
-        for jam, kls in jadwal_hari.items():
-            st.info(f"🕒 **{jam}** — Kelas **{kls}**")
+if "selected_elements" not in st.session_state:
+    st.session_state.selected_elements = []
+
+# --- Tabel Periodik Interaktif ---
+st.write("### Pilih 2 Unsur:")
+for baris in elemen_periodik:
+    cols = st.columns(len(baris))
+    for i, elemen in enumerate(baris):
+        simbol = elemen["simbol"]
+        if simbol:
+            if cols[i].button(simbol, key=simbol):
+                if simbol not in st.session_state.selected_elements and len(st.session_state.selected_elements) < 2:
+                    st.session_state.selected_elements.append(simbol)
+
+# Tampilkan unsur terpilih
+st.write(f"**Unsur Terpilih:** {', '.join(st.session_state.selected_elements)}")
+
+if st.button("Reset Pilihan"):
+    st.session_state.selected_elements = []
+    st.rerun()
+
+# --- Logika Penyusunan Reaksi ---
+if len(st.session_state.selected_elements) == 2:
+    kunci = frozenset(st.session_state.selected_elements)
+    hasil = reaksi_database.get(kunci)
+
+    if hasil:
+        st.markdown("---")
+        st.write("### Hasil Reaksi:")
+        
+        if "setara" in hasil:
+            st.latex(hasil["setara"])
+            mr = hitung_massa_molekul(hasil["produk"])
+            st.info(f"Massa Molekul Relatif (Mr) {hasil['produk']}: {mr:.2f}")
+        
+        elif "setara_opsi" in hasil:
+            st.write("Beberapa kemungkinan reaksi:")
+            for i, opsi in enumerate(hasil["setara_opsi"]):
+                st.latex(opsi)
+                mr = hitung_massa_molekul(hasil["produk_opsi"][i])
+                st.caption(f"Mr {hasil['produk_opsi'][i]}: {mr:.2f}")
     else:
-        st.warning("Tidak ada jadwal.")
-
-# ===============================
-# ROUTING
-# ===============================
-with st.sidebar:
-    st.title("Menu Lab")
-    menu = st.radio("Pilih Menu", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
-
-if st.session_state.lab_terpilih:
-    halaman_detail_lab(st.session_state.lab_terpilih)
-else:
-    if menu == "Jadwal Lab": lihat_jadwal()
-    else: tampilkan_gedung(menu)
+        st.error("Reaksi untuk kombinasi unsur ini belum tersedia di database.")
