@@ -6,7 +6,6 @@ import os
 # ===============================
 # 1. CONFIG & INITIAL STATE
 # ===============================
-# Catatan: set_page_config harus menjadi perintah Streamlit pertama
 st.set_page_config(page_title="AKA-LABBROWS", layout="wide", page_icon="🔬")
 
 st.markdown("""
@@ -67,7 +66,7 @@ def reset_lab():
     st.session_state.lab_terpilih = None
 
 # ===============================
-# 2. DATABASE
+# 2. DATABASE (Integrated with New Schedule)
 # ===============================
 DATABASE_LAB = {
     "Lab Organik": {
@@ -86,12 +85,12 @@ DATABASE_LAB = {
         "dosen": [{"nama": "ayung, M.Si", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Senin", "Senin", "Rabu"],
-            "Waktu": ["07.00–10.00", "10.00–12.00", "13.00–15.00"],
-            "Nama Kegiatan": ["Praktikum 1A", "Praktikum 1B", "Penelitian Organik"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["07:30 - 17:30", "", "", "12:30 - 17:30", ""],
+            "Kegiatan": ["Praktik kelas 1G", "", "", "Praktik kelas 2A", ""]
         })
     },
-    "Lab Analisis": {
+    "Lab Analitik": {
         "gedung": "Gedung D",
         "key": "lab_ana_unique",
         "regulasi": [
@@ -107,9 +106,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "Pak Joko", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Selasa", "Kamis"],
-            "Waktu": ["07.00–10.00", "13.00–15.00"],
-            "Nama Kegiatan": ["Praktikum 2E", "Analisis Instrumen"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["", "07:30 - 17:30", "", "", "07:30 - 12:30"],
+            "Kegiatan": ["", "Praktik kelas 2E1", "", "", "Praktik kelas 2F"]
         })
     },
     "Lab Lingkungan": {
@@ -127,9 +126,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "Pak Purbay", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Rabu", "Jumat"],
-            "Waktu": ["10.00–12.00", "08.00–11.00"],
-            "Nama Kegiatan": ["Praktikum 2E", "Monitoring Air"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["07:30 - 17:30", "", "07:30 - 12:30", "12:30 - 17:30", ""],
+            "Kegiatan": ["Praktik kelas 1D", "", "Praktik kelas 2F", "Praktik kelas 2A", ""]
         })
     },
     "Lab Instrumen": {
@@ -148,9 +147,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "Pak DD", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Kamis"],
-            "Waktu": ["07.00–12.00"],
-            "Nama Kegiatan": ["Praktikum 1D - GC/HPLC"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["07:30 - 17:30", "", "", "12:30 - 17:30", "07:30 - 17:30"],
+            "Kegiatan": ["Praktik kelas 1G", "", "", "Praktik kelas 2G", "Praktik kelas 1B"]
         })
     },
     "Lab Mikro": {
@@ -168,9 +167,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "Bu CC", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Jumat"],
-            "Waktu": ["07.00–10.00"],
-            "Nama Kegiatan": ["Praktikum 1B - Mikrobiologi"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["", "", "07:30 - 17:30", "12:30 - 17:30", ""],
+            "Kegiatan": ["", "", "Praktik kelas 1E", "Praktik kelas 2A", ""]
         })
     },
     "Lab Fisika": {
@@ -189,9 +188,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "Mas Jaka", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Senin"],
-            "Waktu": ["14.00–16.00"],
-            "Nama Kegiatan": ["Praktikum 2A - Mekanika"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["07:30 - 17:30", "07:30 - 17:30", "07:30 - 17:30", "12:30 - 17:30", ""],
+            "Kegiatan": ["Praktik kelas 1G", "Praktik kelas 2C", "Praktik kelas 1D", "Praktik kelas 2A", ""]
         })
     },
     "Lab Teknologi": {
@@ -210,9 +209,9 @@ DATABASE_LAB = {
         "dosen": [{"nama": "agoy, M.Si", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7",
         "data_jadwal": pd.DataFrame({
-            "Hari": ["Selasa"],
-            "Waktu": ["14.00–17.00"],
-            "Nama Kegiatan": ["Praktikum 1C - Tek. Proses"]
+            "Hari": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+            "Jam": ["", "07:30 - 17:30", "", "07:30 - 17:30", ""],
+            "Kegiatan": ["", "Praktik kelas 1G", "", "Praktik kelas 2C", ""]
         })
     }
 }
@@ -261,32 +260,21 @@ def tampilkan_gedung(nama_gedung):
 
 def lihat_jadwal():
     st.header("📅 Jadwal Laboratorium")
-    
-    # Pilih laboratorium menggunakan list dari DATABASE_LAB
     lab_nama = st.selectbox(
         "Pilih Laboratorium",
         options=list(DATABASE_LAB.keys())
     )
-
-    # Menampilkan jadwal menggunakan format st.dataframe sesuai permintaan
-    st.subheader(f"Jadwal {lab_nama}")
-    
-    # Mengambil data dataframe yang ada di DATABASE_LAB
-    df_jadwal = DATABASE_LAB[lab_nama].get("data_jadwal")
-    
-    if df_jadwal is not None:
-        st.dataframe(
-            df_jadwal,
-            use_container_width=True
-        )
+    st.subheader(f"Tabel Jadwal {lab_nama}")
+    df = DATABASE_LAB[lab_nama].get("data_jadwal")
+    if df is not None:
+        st.dataframe(df, use_container_width=True, hide_index=True)
     else:
-        st.warning("Data jadwal belum tersedia untuk laboratorium ini.")
+        st.warning("Data jadwal tidak tersedia.")
 
 # ===============================
 # 4. SIDEBAR & ROUTING
 # ===============================
 with st.sidebar:
-    # Ganti "wwwwwwwwwwww" dengan URL gambar asli jika ada
     st.title("🔬 Lab-Info System")
     st.write("---")
     menu = st.radio(
@@ -295,7 +283,6 @@ with st.sidebar:
         on_change=reset_lab
     )
 
-# LOGIKA TAMPILAN UTAMA
 if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
@@ -304,7 +291,7 @@ else:
         st.write("**Projek Logika Dan Pemrograman Komputer - Kelompok 4**")
         st.write("Tempat khusus untuk kamu yang ingin meminjam lab di Politeknik AKA Bogor.")
         st.video("https://youtu.be/F-j-BGyRNKo")
-        st.write("Politeknik AKA Bogor didirikan pada tahun 1959 dan merupakan perguruan tinggi di lingkungan Kementerian Perindustrian. Terdapat beberapa laboratorium yang terdapat di Politeknik AKA Bogor, antara lain, Gedung D (Lab Organik, Lab Analisis, Lab Lingkungan), Gedung E (Lab Instrumen, Lab Mikro), Gedung F (Lab Fisika), Gedung G (Lab Teknologi).")
+        st.write("Politeknik AKA Bogor didirikan pada tahun 1959 dan merupakan perguruan tinggi di lingkungan Kementerian Perindustrian. Terdapat beberapa laboratorium yang terdapat di Politeknik AKA Bogor, antara lain, Gedung D (Lab Organik, Lab Analitik, Lab Lingkungan), Gedung E (Lab Instrumen, Lab Mikro), Gedung F (Lab Fisika), Gedung G (Lab Teknologi).")
         st.balloons()
     elif menu == "Jadwal Lab":
         lihat_jadwal()
