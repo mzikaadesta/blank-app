@@ -81,19 +81,14 @@ DATABASE_LAB = {
         "key": "lab_org_unique",
         "jadwal": {"senin": {"07.00": "1A", "10.00": "1B"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
             "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "3. Reaksi yang menghasilkan gas berbahaya wajib dilakukan di dalam lemari asam.",
+            "4. Pahami MSDS dan simbol bahaya bahan kimia organik sebelum memulai sintesis.",
+            "5. Pembuangan limbah pelarut organik harus dipisah (halogen dan non-halogen).",
+            "6. Dilarang makan, minum, atau menyimpan bahan makanan di area meja kerja lab.",
+            "7. Pastikan seluruh kran gas dan air tertutup rapat sebelum meninggalkan laboratorium.",
+            "8. Lapor kepada laboran jika terjadi tumpahan bahan kimia atau alat gelas pecah."
         ],
         "dosen": [{"nama": "ayung, M.Si", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
@@ -103,19 +98,14 @@ DATABASE_LAB = {
         "key": "lab_ana_unique",
         "jadwal": {"selasa": {"07.00": "2E"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Wajib menggunakan APD sesuai standar prosedur analisis kimia.",
+            "3. Pastikan timbangan analitik dalam kondisi bersih dan terkalibrasi sebelum digunakan.",
+            "4. Gunakan pipet volume dan alat ukur gelas dengan teknik yang benar untuk akurasi data.",
+            "5. Dilarang membuang larutan asam/basa kuat langsung ke wastafel tanpa penetralan.",
+            "6. Jaga kebersihan area titrasi dan meja instrumen dari ceceran larutan standar.",
+            "7. Lakukan pencatatan logbook penggunaan alat dan bahan kimia secara tertib.",
+            "8. Cuci seluruh peralatan gelas dengan air demineralisasi setelah digunakan."
         ],
         "dosen": [{"nama": "Pak Joko", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
@@ -125,19 +115,14 @@ DATABASE_LAB = {
         "key": "lab_ling_unique",
         "jadwal": {"rabu": {"10.00": "2E"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Gunakan masker dan sarung tangan saat menangani sampel air limbah atau tanah.",
+            "3. Lakukan pengolahan awal limbah berbahaya sebelum dibuang ke saluran pembuangan.",
+            "4. Pastikan alat DO-meter, pH-meter, dan spektrofotometer sudah dipanaskan (warm-up).",
+            "5. Dilarang mencampur sampel lingkungan dengan bahan kimia tanpa label yang jelas.",
+            "6. Bersihkan wadah sampel dan area kerja setelah melakukan ekstraksi.",
+            "7. Simpan reagen kimia pada lemari penyimpanan yang sesuai dengan klasifikasinya.",
+            "8. Laporkan segera jika terdapat kerusakan pada sistem filtrasi atau pengolahan air."
         ],
         "dosen": [{"nama": "Pak Purbay", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
@@ -147,41 +132,31 @@ DATABASE_LAB = {
         "key": "lab_ins_unique",
         "jadwal": {"kamis": {"07.00": "1D"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Dilarang menyalakan instrumen (AAS, GC, HPLC) tanpa pendampingan atau izin laboran.",
+            "3. Pastikan tegangan listrik stabil dan UPS berfungsi sebelum menjalankan alat.",
+            "4. Gunakan larutan standar dengan kemurnian tinggi (Pro Analysis) untuk hasil maksimal.",
+            "5. Dilarang membawa makanan atau minuman ke dalam ruangan instrumen ber-AC.",
+            "6. Wajib mengisi logbook penggunaan instrumen secara detail (durasi dan status alat).",
+            "7. Bersihkan sel cuvet atau kolom kromatografi sesuai SOP setelah prosedur selesai.",
+            "8. Matikan instrumen sesuai urutan tombol power (SOP shutdown) yang benar."
         ],
         "dosen": [{"nama": "Pak DD", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
     },
-    "Lab mikro": {
+    "Lab Mikro": {
         "gedung": "Gedung E",
         "key": "lab_mikro_unique",
         "jadwal": {"jumat": {"07.00": "1B"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Gunakan jas lab yang bersih dan lakukan sterilisasi tangan sebelum bekerja.",
+            "3. Bekerja secara aseptis di dekat api bunsen atau di dalam Laminar Air Flow (LAF).",
+            "4. Pastikan autoclave digunakan sesuai prosedur untuk sterilisasi media dan alat.",
+            "5. Dilarang membuka cawan petri berisi biakan mikroba secara sembarangan di luar LAF.",
+            "6. Buang limbah biologis (bekas biakan) ke dalam kantong kuning untuk autoklaf.",
+            "7. Semprot meja kerja dengan alkohol 70% sebelum dan sesudah kegiatan.",
+            "8. Lapor kepada laboran jika terjadi kontaminasi atau kerusakan pada inkubator."
         ],
         "dosen": [{"nama": "Bu CC", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
@@ -191,19 +166,14 @@ DATABASE_LAB = {
         "key": "lab_fisika_unique",
         "jadwal": {"senin": {"14.00": "2A"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Gunakan sepatu tertutup yang kering untuk menghindari risiko sengatan listrik.",
+            "3. Periksa sambungan kabel dan pastikan tidak ada kabel yang terkelupas sebelum praktikum.",
+            "4. Dilarang menyentuh komponen listrik dengan tangan basah atau tanpa alas kaki.",
+            "5. Gunakan multimeter dan alat ukur listrik sesuai dengan rentang batas ukurnya.",
+            "6. Pastikan sumber tegangan (power supply) dalam posisi 'Off' saat merangkai sirkuit.",
+            "7. Rapikan kembali alat peraga, kabel penghubung, dan statif ke tempat penyimpanan.",
+            "8. Lapor segera jika tercium bau terbakar atau melihat percikan api pada rangkaian."
         ],
         "dosen": [{"nama": "Mas Jaka", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
@@ -213,25 +183,19 @@ DATABASE_LAB = {
         "key": "lab_tek_unique",
         "jadwal": {"selasa": {"14.00": "1C"}},
         "regulasi": [
-            "1. Wajib koordinasi dengan dosen pembimbing dan laboran penanggung jawab lab.",
-            "2. Gunakan APD lengkap (jas lab, sepatu tertutup, masker, dan kacamata pengaman).",
-            "3. Gunakan lemari asam untuk setiap reaksi kimia yang menghasilkan gas berbahaya.",
-            "4. Pahami simbol bahaya pada label bahan kimia sebelum digunakan.",
-            "5. Buang limbah pada tempatnya sesuai jenisnya, dilarang membuang ke wastafel.",
-            "6. Cek kondisi alat gelas sebelum digunakan dan lapor jika ada kerusakan.",
-            "7. Dilarang bekerja sendiri tanpa pengawasan dosen atau laboran di dalam lab.",
-            "8. Dilarang makan dan minum serta menyimpan makanan di area laboratorium.",
-            "9. Jaga kebersihan meja sebelum, saat praktikum, dan sesudah selesai digunakan.",
-            "10. Simpan barang pribadi pada tempat yang disediakan, bukan di meja kerja.",
-            "11. Cek dan cuci alat sebelum serta sesudah praktikum secara mandiri.",
-            "12. Hadir tepat waktu dan lapor kepada laboran sebelum meninggalkan lab.",
-            "13. Lapor kepada labora jika ada alat atau instrumen yang rusak atau Error."
+            "1. Wajib koordinasi dengan dosen pembimbing penelitian dan laboran penanggung jawab lab.",
+            "2. Gunakan sepatu safety, masker, dan sarung tangan saat mengoperasikan mesin pilot.",
+            "3. Pahami tombol 'Emergency Stop' pada setiap mesin industri di dalam laboratorium.",
+            "4. Dilarang memasukkan bahan baku ke dalam mesin tanpa seizin laboran teknologi.",
+            "5. Pastikan kebersihan alat proses (evaporator, dryer, dll) sebelum dan sesudah running.",
+            "6. Lakukan pengecekan ketersediaan air pendingin atau uap panas (steam) jika diperlukan.",
+            "7. Simpan hasil produk teknologi pada wadah yang aman dan berikan label identitas.",
+            "8. Laporkan jika terdapat kebocoran pipa atau suara mesin yang tidak normal."
         ],
         "dosen": [{"nama": "agoy, M.Si", "telp": "08xxx"}],
         "link_form": "https://forms.gle/GtHJswG8noyFvoHW7"
     }
 }
-
 # ===============================
 # 3. FUNGSI TAMPILAN
 # ===============================
